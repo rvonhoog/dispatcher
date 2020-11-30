@@ -1,0 +1,206 @@
+<head>
+	<title> Dispatch (and Task) Genrater </title>
+<style>
+	.hidden {
+		display: none;
+	}
+</style>
+</head>
+<body>
+	<div id="vertical">
+		<label for="vertical">Vertical: </label>
+
+		<select name="vertical" id="vertical" onchange="handleVert()">
+			<option value="Multifamily" checked>Multifamily</option>
+			<option value="THD">The Home Depot</option>
+		</select>
+	</div>
+
+	<div id="type"> 
+		<label for="type">Type: </label>
+
+		<input type="radio" id="lockers" name="type" value="Lockers" onclick="handleClick(this)">
+		<label for="lockers">Lockers</label>
+
+		<input type="radio" id="room" name="type" value="Room" onclick="handleClick(this)">
+		<label for="room">Room</label>
+
+	</div>
+
+	<div id="lockerGen">
+		<label for="gen" id="gen">Gen: </label>
+
+		<select name="gen" id="gen">
+			<option value="3">3</option>
+			<option value="4" selected >4</option>
+		</select>
+
+	</div>
+
+	<div id="roomGen" class="hidden">
+		<label for="gen" id="gen">Gen: </label>
+
+		<select name="gen" id="gen">
+			<option value="1">1</option>
+			<option value="2" selected >2</option>
+		</select>
+
+	</div>
+	<div id="rev">
+		<label for="rev">Rev: </label>
+
+		<select name="rev" id="rev">
+			<option value="a">A</option>
+			<option value="b">B</option>
+			<option value="c" selected >C</option>
+		</select>
+
+	</div>
+
+	<div id="scope">
+		<input type="checkbox" id="scope" name="adjustments" value="adjustments">
+		<label for="adjustments">Locker Adjustments</label>
+
+		<input type="checkbox" id="scope" name="parts" value="parts" onClick="handleParts(this)">
+		<label for="parts">Parts Replacement</label>
+		<div class="parts hidden">
+			<!-- Panel Locks -->
+			<span class="gen3 hidden">
+			<input type="checkbox" id="parts" name="panelLocks" value="panelLocks">
+			<label for="panelLocks">Panel Locks</label>
+			</span>
+
+			<!-- Control Board -->
+			<input type="checkbox" id="parts" name="cb" value="cb">
+			<label for="cb">Control Boards</label>
+			
+			<!-- Router -->
+			<input type="checkbox" id="parts" name="router" value="router">
+			<label for="router">Router</label>
+
+			<!-- APC -->
+			<input type="checkbox" id="parts" name="apc" value="apc">
+			<label for="apc">APC</label>
+
+			<!-- iPad -->
+			<input type="checkbox" id="parts" name="iPad" value="iPad">
+			<label for="iPad">iPad</label>
+
+			<!-- Camera -->
+			<input type="checkbox" id="parts" name="camera" value="Camera">
+			<label for="camera">Camera</label>
+
+			<!-- Cables
+	   			Power
+				Ethernet
+				Lock Extensions -->
+			<input type="checkbox" id="parts" name="cables" value="cables">
+			<label for="cables">Cables</label>
+
+			<!-- Locks -->
+			<input type="checkbox" id="parts" name="locks" value="locks">
+			<label for="locks">Locks</label>
+
+			<!-- Door -->
+			<input type="checkbox" id="parts" name="door" value="door">
+			<label for="door">Door</label>
+				<!-- if gen3 show left/right -->
+				<!-- size: -->
+
+		</div>
+
+		<input type="checkbox" id="scope" name="network" value="network">
+		<label for="network">Invenstigate Network</label>
+		
+		<input type="checkbox" id="scope" name="doorStrike" value="doorStrike">
+		<label for="doorStrike">Investigate Door Strike Wiring</label>
+		<!-- verify parts on site -->
+		<!-- Check in with site -->
+		<!-- Call Luxer for access -->
+		<!-- generate tools needed -->
+		<!-- Decals -->
+
+		<!-- 
+		<input type="checkbox" id="scope" name="internet" value="internet">
+		<label for="internet">Test Internet</label>
+
+		<input type="checkbox" id="scope" name="audit" value="audit">
+		<label for="audit">Audit</label>
+
+
+	  	<input type="checkbox" id="scope" name="require" value="require" onClick="handleParts(this)">
+		<label for="require">Requires Parts</label>
+			<div class="parts hidden">
+
+				<input type="checkbox" id="scope" name="return" value="return"> 
+				<label for="return">Return Parts</label>
+			
+				<input type="checkbox" id="scope" name="require" value="require" onClick="handleParts(this)">
+				<label for="require">Requires Parts</label>
+			</div>
+		-->
+		<!-- Cameras -->
+		<!-- Demo working -->
+	</div>
+	<!-- TODO: Generated Scope Area -->
+	<!-- TODO: Address fields -->
+	<!-- TODO: Script -->
+	
+	<div id="generated">
+		<p id="vertical"></p>
+		<p id="type"></p>
+		<p id="gen"></p>
+		<p id="rev"></p>
+		<p id="scope"></p>
+	</p>
+
+	<div id="crm">
+	</div>
+</body>
+       <script>
+	       const checkIn = "Check in with the leasing office, and receive any parts sent";
+	       const callT3 = "Call LuxerOne support at (415) 390 - 0123 ext 992";
+	       const checkOut = callT3 + " Call LuxerOne support at (415) 390 - 0123 ext 992 to verify everything on the scope was completed, and lockers are working at full functionality. Perform a test delivery and verify cameras are online and angled correctly."
+	       const returnParts = "Use the provided return label to send any unused, or replaced parts back to LuxerOne"
+	       const notComplete = "If work cannot be completed for any reason, please document why, and take pictures for your report to confirm";
+
+	       function handleParts(parts) {
+		       console.log(parts.checked);
+
+		       document.querySelector("div.parts").classList.toggle("hidden");
+
+		       if (document.querySelector("select#gen").value === "3"){
+				document.querySelector(".gen3").classList.remove("hidden");
+		       } else {
+			       document.querySelector(".gen3").classList.add("hidden");
+		       }
+	       }
+
+	       function handleSc
+
+	       function handleClick(type) {
+		       document.querySelector("p#type").innerHTML = "Type Selected: " + type.value;
+
+		       if (type.value == "Room") { 
+			       document.querySelector("div#roomGen").classList.remove("hidden");
+			       document.querySelector("div#rev").classList.add("hidden");
+			       document.querySelector("div#lockerGen").classList.add("hidden");
+		       };
+		       if (type.value == "Lockers") { 
+			       document.querySelector("div#roomGen").classList.add("hidden");
+			       document.querySelector("div#lockerGen").classList.remove("hidden");
+			       document.querySelector("div#rev").classList.remove("hidden");
+		       };
+	       }
+
+	       function handleVert() {
+		       var vert = document.querySelector("select#vertical").value;
+
+		       document.querySelector("p#vertical").innerHTML = "You selected: " + vert;
+
+		       document.querySelector("div#type").classList.toggle("hidden");
+		       document.querySelector("div#lockerGen").classList.toggle("hidden");
+		       document.querySelector("div#rev").classList.toggle("hidden");
+	       }
+	       
+       </script>
