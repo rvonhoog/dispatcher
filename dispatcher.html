@@ -170,10 +170,27 @@
 		       const returnPart = "Use provided return label to send any unused, or replaced parts back to Luxer One."
 		       const notCompleted = "If for any reason, please document why, and take pictures for your report to confirm.";
 
+		       const string = "";
+
+		       scopeSnips = {
+			       "router": "this is the router scope"
+		       };
+
 		       var genScope = [];
-		       
+		      
+		       // Set generated script to the 'Beginning of scope' elements
 		       genScope.push(checkIn, access);
+
+		       //Go through scope array
+		       scope.forEach(elm => {
+			       console.log(elm);
+			       console.log(scopeSnips[elm]);
+			       genScope.push(scopeSnips[elm]);
+		       });
+		       //push to genScope proper scopes for parts
+
 		       console.log(genScope);
+
 	       }
 
 	       function handleParts(parts) {
