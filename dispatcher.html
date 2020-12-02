@@ -163,6 +163,7 @@
 	       const checkOut = callT3 + " Call LuxerOne support at (415) 390 - 0123 ext 992 to verify everything on the scope was completed, and lockers are working at full functionality. Perform a test delivery and verify cameras are online and angled correctly."
 	       const returnParts = "Use the provided return label to send any unused, or replaced parts back to LuxerOne"
 	       const notComplete = "If work cannot be completed for any reason, please document why, and take pictures for your report to confirm";
+	       var scope = [];
 
 	       function handleParts(parts) {
 		       console.log(parts.checked);
@@ -174,6 +175,16 @@
 		       } else {
 			       document.querySelector(".gen3").classList.add("hidden");
 		       }
+	       }
+
+	       function handleScope(part){
+		       if (part.checked){
+			       scope.push(part.value);
+		       } else {
+			       scope.splice(scope.indexOf(part.value), 1);
+		       };
+		       console.log(scope);
+	 
 	       }
 
 
