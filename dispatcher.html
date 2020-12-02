@@ -160,6 +160,22 @@
        <script>
 	       var scope = [];
 
+	       function generateScope() {
+		       const checkIn = "Check in with the leasing office, and receive any parts sent.";
+		       const callIn = "Call Luxer One support at (415) 390 - 0123 ext 992 ";
+		       const access = callIn + "for any access codes needed.";
+		       const verify = callIn + "to verify everything on scope was completed and all lockers and/or doors are working properly.";
+		       const delivery = "Perform a test delivery with support."
+		       const camera = "Verify cameras are online and angled correctly with support.";
+		       const returnPart = "Use provided return label to send any unused, or replaced parts back to Luxer One."
+		       const notCompleted = "If for any reason, please document why, and take pictures for your report to confirm.";
+
+		       var genScope = [];
+		       
+		       genScope.push(checkIn, access);
+		       console.log(genScope);
+	       }
+
 	       function handleParts(parts) {
 		       console.log(parts.checked);
 
@@ -179,6 +195,7 @@
 			       scope.splice(scope.indexOf(part.value), 1);
 		       };
 		       console.log(scope);
+		       generateScope();
 	 
 	       }
 
