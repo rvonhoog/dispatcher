@@ -158,12 +158,50 @@
 	</div>
 </body>
        <script>
-	       const checkIn = "Check in with the leasing office, and receive any parts sent";
-	       const callT3 = "Call LuxerOne support at (415) 390 - 0123 ext 992";
-	       const checkOut = callT3 + " Call LuxerOne support at (415) 390 - 0123 ext 992 to verify everything on the scope was completed, and lockers are working at full functionality. Perform a test delivery and verify cameras are online and angled correctly."
-	       const returnParts = "Use the provided return label to send any unused, or replaced parts back to LuxerOne"
-	       const notComplete = "If work cannot be completed for any reason, please document why, and take pictures for your report to confirm";
 	       var scope = [];
+
+	       function generateScope() {
+		       scopeSnips = {
+		       "checkIn" : "Check in with the leasing office, and receive any parts sent.",
+		       "callIn" : "Call Luxer One support at (415) 390 - 0123 ext 992 ",
+		       "access" : "for any access codes needed.",
+		       "verify" : "to verify everything on scope was completed and all lockers and/or doors are working properly.",
+		       "delivery" : "Perform a test delivery with support.",
+		       "camera" : "Verify cameras are online and angled correctly with support.",
+		       "returnPart" : "Use provided return label to send any unused, or replaced parts back to Luxer One.",
+		       "notCompleted" : "If for any reason, please document why, and take pictures for your report to confirm.",
+			"cb": "Swap each cable to its respective position on the new control board. Contact LuxerOne support for assistance updating the server information from the iPad app. Test each locker on that locker bank individually from the manager interface to ensure each one opens the correct number",
+			       "router": "Swap the router, cable for cable, and power on. Wait for the router to show 3 green lights, and call LuxerOne support to verify connectivity. If the lights do not turn green, test the incoming internet line for connection. Job may require laptop, or line toner to verify connectivity.",
+			       "apc": "Pull tab at the bottom of battery backup to activate. Swap the APC unit it, replacing all cables in the same position. Verify power, and functionality of the system",
+			       "iPad": "(if wired) Confirm Wi-Fi is turned off before swapping the iPad. Confirm iPad is charging, and opening lockers. Contact LuxerOne support to verify the new iPad is checking in with our servers.",
+			       "camera": "Replace camera located (describe camera location if possible) Wait for the light on the front to turn solid blue, and call LuxerOne support to verify functionality."
+		       }
+
+
+		       const genDiv = document.querySelector('div#generated');
+
+		       var genScope = [];
+		      
+		       genDiv.innerHTML =`
+			       <p>${scopeSnips.checkIn}</p>
+				<p>${scopeSnips.callIn + scopeSnips.access} </p>
+				`
+		       
+		       //Go through scope array
+		       scope.forEach(elm => {
+			       genScope.push(scopeSnips[elm]);
+		       });
+
+		       genScope.forEach(elm => {genDiv.innerHTML += '<p> ' + elm + ' </p>'})
+
+		       genDiv.innerHTML += `
+				<p>${scopeSnips.callIn + scopeSnips.verify}</p>
+				<p>${scopeSnips.delivery}</p>
+				<p>${scopeSnips.camera}</p>
+				<p>${scopeSnips.returnPart}</p>
+				<p>${scopeSnips.notCompleted}</p>
+				`
+	       }
 
 	       function handleParts(parts) {
 		       console.log(parts.checked);
@@ -184,6 +222,7 @@
 			       scope.splice(scope.indexOf(part.value), 1);
 		       };
 		       console.log(scope);
+		       generateScope();
 	 
 	       }
 
