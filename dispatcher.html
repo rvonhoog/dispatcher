@@ -7,8 +7,7 @@
 </style>
 </head>
 <body>
-	<div id="vertical">
-		<label for="vertical">Vertical: </label>
+	<div id="vertical"> <label for="vertical">Vertical: </label>
 
 		<select name="vertical" id="vertical" onchange="handleVert()">
 			<option value="Multifamily" checked>Multifamily</option>
@@ -98,8 +97,8 @@
 			<label for="cables">Cables</label>
 
 			<!-- Locks -->
-			<input type="checkbox" id="parts" name="locks" value="locks">
-			<label for="locks" onClick="handleScope(this)">Locks</label>
+			<input type="checkbox" id="parts" name="locks" value="locks" onClick="handleScope(this)">
+			<label for="locks" >Locks</label>
 
 			<!-- Door -->
 			<input type="checkbox" id="parts" name="door" value="door" onClick="handleScope(this)">
@@ -181,9 +180,10 @@
 			       "apc": "Pull tab at the bottom of battery backup to activate. Swap the APC unit it, replacing all cables in the same position. Verify power, and functionality of the system",
 			       "iPad": "(if wired) Confirm Wi-Fi is turned off before swapping the iPad. Confirm iPad is charging, and opening lockers. Contact LuxerOne support to verify the new iPad is checking in with our servers.",
 			       "camera": "Replace camera located (describe camera location if possible) Wait for the light on the front to turn solid blue, and call LuxerOne support to verify functionality.",
-			       "adjustments": "Assess lockers (insert known locker numbers) and adjust the door, hinge, and latch as needed to open and close 5/5 times. If adjustment does not resolve the issue, replace the lock, and test again. Open all doors to ensure they are opening and closing properly. Assess and adjust any additional doors that are not functioning as expected. Check Overall Levelling of each locker bank, and adjust as needed.",
+					      "adjustments": "<ol><li>Open the locker either by entering the manager pin on the iPad or using the key or combo code.</li><li>Adjust the latch on the door. (The latch must be aligned with the lock to ensure it will open/close properly.) You can also add a bumper in case the issue is related to the door tension.</li><li>If adjusting the latch doesn’t work, replace the lock by following How to replace a lock guide. </li><Once the lock is replaced, test by opening the door from the iPad. If you hear the click once and the door swings open, the issue has been resolved.</li><li>If the door doesn’t open through the iPad, contact tech support for further assistance.</li>Test all the doors 2x to ensure all are swinging open.</li><li>If you notice any other doors not swinging open, follow steps 2-5.</li><li>If there are multiple lockers on the same bank that are not swinging open, please follow How to level the lockers guide. </li></ol>",
 				"network": "Check the incoming internet line connected to the router for connectivity using a laptop with an ethernet connection. If that connection fails, test with a different ethernet cable to the wall connection. If connection is live, reboot the router, and note the lights. Contact LuxerOne support to troubleshoot further.",
-			       "doorStrike": "Check that the wires from the doorstrike are connected tightly in the correct position: Furthest from the power cable, and center port for standard strike or Closest to the power, and central for a maglock."
+			       "doorStrike": "Check that the wires from the doorstrike are connected tightly in the correct position: Furthest from the power cable, and center port for standard strike or Closest to the power, and central for a maglock.",
+					      "locks": "<ol><li>Open the locker by entering the manager pin on the iPad. Does it open? Do you hear a click?</li><li>If it does open and you hear a click, adjust the latch and do not replace the lock.</li><li>If you hear a click but the door doesn’t open. Try opening the door using the key or combo code. Adjust the latch and try opening the door with the manager pin from the iPad. If it opens, do not replace the lock.</li><li>If you don’t hear a click and the door doesn’t open, replace the lock by following How to replace a lock guide. </li><li>Once the lock is replaced, test it. Enter the manager pin on the iPad and open the door. You should hear a click and the door should swing open. If the door still doesn’t open, contact tech support for further assistance.</li><li>If the door opens, test all the doors 2x to ensure all are swinging open.</li><li>If you notice any other doors not swinging open, follow steps 2-5.</li><li> If there are multiple lockers on the same bank that are not swinging open, please follow How to level the lockers guide. </li></ol>"
 		       }
 
 
