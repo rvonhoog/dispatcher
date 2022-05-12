@@ -1,0 +1,264 @@
+<head>
+	<title> Dispatch (and Task) Genrater </title>
+<style>
+	.hidden {
+		display: none;
+	}
+</style>
+</head>
+<body>
+	<div id="vertical"> <label for="vertical">Vertical: </label>
+
+		<select name="vertical" id="vertical" onchange="handleVert()">
+			<option value="Multifamily" checked>Multifamily</option>
+			<option value="THD">The Home Depot</option>
+		</select>
+	</div>
+
+	<div id="type"> 
+		<label for="type">Type: </label>
+
+		<input type="radio" id="lockers" name="type" value="Lockers" onclick="handleClick(this)">
+		<label for="lockers">Lockers</label>
+
+		<input type="radio" id="room" name="type" value="Room" onclick="handleClick(this)">
+		<label for="room">Room</label>
+
+	</div>
+
+	<div id="lockerGen">
+		<label for="gen" id="gen">Gen: </label>
+
+		<select name="gen" id="gen">
+			<option value="3">3</option>
+			<option value="4" selected >4</option>
+		</select>
+
+	</div>
+
+	<div id="roomGen" class="hidden">
+		<label for="gen" id="gen">Gen: </label>
+
+		<select name="gen" id="gen">
+			<option value="1">1</option>
+			<option value="2" selected >2</option>
+		</select>
+
+	</div>
+	<div id="rev">
+		<label for="rev">Rev: </label>
+
+		<select name="rev" id="rev">
+			<option value="a">A</option>
+			<option value="b">B</option>
+			<option value="c" selected >C</option>
+		</select>
+
+	</div>
+
+	<div id="scope">
+		<input type="checkbox" id="scope" name="adjustments" value="adjustments" onClick="handleScope(this)">
+		<label for="adjustments">Locker Adjustments</label>
+
+		<input type="checkbox" id="scope" name="parts" value="parts" onClick="handleParts(this)">
+		<label for="parts">Parts Replacement</label>
+		<div class="parts hidden">
+			<!-- Panel Locks -->
+			<span class="gen3 hidden">
+			<input type="checkbox" id="parts" name="panelLocks" value="panelLocks" onClick="handleScope(this)">
+			<label for="panelLocks">Panel Locks</label>
+			</span>
+
+			<!-- Control Board -->
+			<input type="checkbox" id="parts" name="cb" value="cb" onClick="handleScope(this)">
+			<label for="cb">Control Boards</label>
+			
+			<!-- Router -->
+			<input type="checkbox" id="parts" name="router" value="router" onClick="handleScope(this)">
+			<label for="router">Router</label>
+
+			<!-- APC -->
+			<input type="checkbox" id="parts" name="apc" value="apc" onClick="handleScope(this)">
+			<label for="apc">APC</label>
+
+			<!-- iPad -->
+			<input type="checkbox" id="parts" name="iPad" value="iPad" onClick="handleScope(this)">
+			<label for="iPad">iPad</label>
+
+			<!-- Camera -->
+			<input type="checkbox" id="parts" name="camera" value="camera" onClick="handleScope(this)">
+			<label for="camera">Camera</label>
+
+			<!-- Cables
+	   			Power
+				Ethernet
+				Lock Extensions -->
+			<input type="checkbox" id="parts" name="cables" value="cables" onClick="handleScope(this)">
+			<label for="cables">Cables</label>
+
+			<!-- Locks -->
+			<input type="checkbox" id="parts" name="locks" value="locks" onClick="handleScope(this)">
+			<label for="locks" >Locks</label>
+
+			<!-- Door -->
+			<input type="checkbox" id="parts" name="door" value="door" onClick="handleScope(this)">
+			<label for="door">Door</label>
+				<!-- if gen3 show left/right -->
+				<!-- size: -->
+
+		</div>
+
+		<input type="checkbox" id="scope" name="network" value="network" onClick="handleScope(this)">
+		<label for="network">Investigate Network</label>
+		
+		<input type="checkbox" id="scope" name="doorStrike" value="doorStrike" onClick="handleScope(this)">
+		<label for="doorStrike">Investigate Door Strike Wiring</label>
+		<!-- verify parts on site -->
+		<!-- Check in with site -->
+		<!-- Call Luxer for access -->
+		<!-- generate tools needed -->
+		<!-- Decals -->
+
+		<!-- 
+		<input type="checkbox" id="scope" name="internet" value="internet">
+		<label for="internet">Test Internet</label>
+
+		<input type="checkbox" id="scope" name="audit" value="audit">
+		<label for="audit">Audit</label>
+
+
+	  	<input type="checkbox" id="scope" name="require" value="require" onClick="handleParts(this)">
+		<label for="require">Requires Parts</label>
+			<div class="parts hidden">
+
+				<input type="checkbox" id="scope" name="return" value="return"> 
+				<label for="return">Return Parts</label>
+			
+				<input type="checkbox" id="scope" name="require" value="require" onClick="handleParts(this)">
+				<label for="require">Requires Parts</label>
+			</div>
+		-->
+		<!-- Cameras -->
+		<!-- Demo working -->
+	</div>
+	<!-- TODO: Generated Scope Area -->
+	<!-- TODO: Address fields -->
+	<!-- TODO: Script -->
+	
+	<div id="generated">
+		<p id="vertical"></p>
+		<p id="type"></p>
+		<p id="gen"></p>
+		<p id="rev"></p>
+		<p id="scope"></p>
+	</p>
+
+	<div id="crm">
+	</div>
+</body>
+       <script>
+	       var scope = [];
+
+	       function generateCRM() {
+		       crmSnips = {
+
+		       };
+	       }
+
+	       function generateScope() {
+		       scopeSnips = {
+		       "checkIn" : "Check in with the leasing office, and receive any parts sent.",
+		       "callIn" : "Call Luxer One support at (415) 390 - 0123 ext 992 ",
+		       "access" : "for any access codes needed.",
+		       "verify" : "to verify everything on scope was completed and all lockers and/or doors are working properly.",
+		       "delivery" : "Perform a test delivery with support.",
+		       "verifyCamera" : "Verify cameras are online and angled correctly with support.",
+		       "returnPart" : "Use provided return label to send any unused, or replaced parts back to Luxer One.",
+		       "notCompleted" : "If for any reason, please document why, and take pictures for your report to confirm.",
+			"cb": "Swap each cable to its respective position on the new control board. Contact LuxerOne support for assistance updating the server information from the iPad app. Test each locker on that locker bank individually from the manager interface to ensure each one opens the correct number",
+			       "router": "Swap the router, cable for cable, and power on. Wait for the router to show 3 green lights, and call LuxerOne support to verify connectivity. If the lights do not turn green, test the incoming internet line for connection. Job may require laptop, or line toner to verify connectivity.",
+			       "apc": "Pull tab at the bottom of battery backup to activate. Swap the APC unit it, replacing all cables in the same position. Verify power, and functionality of the system",
+			       "iPad": "(if wired) Confirm Wi-Fi is turned off before swapping the iPad. Confirm iPad is charging, and opening lockers. Contact LuxerOne support to verify the new iPad is checking in with our servers.",
+			       "camera": "Replace camera located (describe camera location if possible) Wait for the light on the front to turn solid blue, and call LuxerOne support to verify functionality.",
+					      "adjustments": "<ol><li>Open the locker either by entering the manager pin on the iPad or using the key or combo code.</li><li>Adjust the latch on the door. (The latch must be aligned with the lock to ensure it will open/close properly.) You can also add a bumper in case the issue is related to the door tension.</li><li>If adjusting the latch doesn’t work, replace the lock by following How to replace a lock guide. </li><Once the lock is replaced, test by opening the door from the iPad. If you hear the click once and the door swings open, the issue has been resolved.</li><li>If the door doesn’t open through the iPad, contact tech support for further assistance.</li>Test all the doors 2x to ensure all are swinging open.</li><li>If you notice any other doors not swinging open, follow steps 2-5.</li><li>If there are multiple lockers on the same bank that are not swinging open, please follow How to level the lockers guide. </li></ol>",
+				"network": "Check the incoming internet line connected to the router for connectivity using a laptop with an ethernet connection. If that connection fails, test with a different ethernet cable to the wall connection. If connection is live, reboot the router, and note the lights. Contact LuxerOne support to troubleshoot further.",
+			       "doorStrike": "Check that the wires from the doorstrike are connected tightly in the correct position: Furthest from the power cable, and center port for standard strike or Closest to the power, and central for a maglock.",
+					      "locks": "<ol><li>Open the locker by entering the manager pin on the iPad. Does it open? Do you hear a click?</li><li>If it does open and you hear a click, adjust the latch and do not replace the lock.</li><li>If you hear a click but the door doesn’t open. Try opening the door using the key or combo code. Adjust the latch and try opening the door with the manager pin from the iPad. If it opens, do not replace the lock.</li><li>If you don’t hear a click and the door doesn’t open, replace the lock by following How to replace a lock guide. </li><li>Once the lock is replaced, test it. Enter the manager pin on the iPad and open the door. You should hear a click and the door should swing open. If the door still doesn’t open, contact tech support for further assistance.</li><li>If the door opens, test all the doors 2x to ensure all are swinging open.</li><li>If you notice any other doors not swinging open, follow steps 2-5.</li><li> If there are multiple lockers on the same bank that are not swinging open, please follow How to level the lockers guide. </li></ol>"
+		       }
+
+
+		       const genDiv = document.querySelector('div#generated');
+
+		       var genScope = [];
+		      
+		       genDiv.innerHTML =`
+			       <p>${scopeSnips.checkIn}</p>
+				<p>${scopeSnips.callIn + scopeSnips.access} </p>
+				`
+		       
+		       //Go through scope array
+		       scope.forEach(elm => {
+			       genScope.push(scopeSnips[elm]);
+		       });
+
+		       genScope.forEach(elm => {genDiv.innerHTML += '<p> ' + elm + ' </p>'})
+
+		       genDiv.innerHTML += `
+				<p>${scopeSnips.callIn + scopeSnips.verify}</p>
+				<p>${scopeSnips.delivery}</p>
+				<p>${scopeSnips.verifyCamera}</p>
+				<p>${scopeSnips.returnPart}</p>
+				<p>${scopeSnips.notCompleted}</p>
+				`
+	       }
+
+	       function handleParts(parts) {
+		       console.log(parts.checked);
+
+		       document.querySelector("div.parts").classList.toggle("hidden");
+
+		       if (document.querySelector("select#gen").value === "3"){
+				document.querySelector(".gen3").classList.remove("hidden");
+		       } else {
+			       document.querySelector(".gen3").classList.add("hidden");
+		       }
+	       }
+
+	       function handleScope(part){
+		       if (part.checked){
+			       scope.push(part.value);
+		       } else {
+			       scope.splice(scope.indexOf(part.value), 1);
+		       };
+		       console.log(scope);
+		       generateScope();
+	 
+	       }
+
+
+	       function handleClick(type) {
+		       document.querySelector("p#type").innerHTML = "Type Selected: " + type.value;
+
+		       if (type.value == "Room") { 
+			       document.querySelector("div#roomGen").classList.remove("hidden");
+			       document.querySelector("div#rev").classList.add("hidden");
+			       document.querySelector("div#lockerGen").classList.add("hidden");
+		       };
+		       if (type.value == "Lockers") { 
+			       document.querySelector("div#roomGen").classList.add("hidden");
+			       document.querySelector("div#lockerGen").classList.remove("hidden");
+			       document.querySelector("div#rev").classList.remove("hidden");
+		       };
+	       }
+
+	       function handleVert() {
+		       var vert = document.querySelector("select#vertical").value;
+
+		       document.querySelector("p#vertical").innerHTML = "You selected: " + vert;
+
+		       document.querySelector("div#type").classList.toggle("hidden");
+		       document.querySelector("div#lockerGen").classList.toggle("hidden");
+		       document.querySelector("div#rev").classList.toggle("hidden");
+	       }
+	       
+       </script>
